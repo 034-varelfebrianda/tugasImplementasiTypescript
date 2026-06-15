@@ -1,4 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-console.log('hello worlds');
+const nama = 'varel';
+console.log(nama);
 //# sourceMappingURL=index.js.map

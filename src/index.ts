@@ -1,1 +1,2 @@
-console.log('hello worlds')
+const nama : string = 'varel'
+console.log(nama)
