@@ -1,29 +1,38 @@
 class Perpustakaan {
     constructor(
-    public nama: string,
-    public buku: string,
-    private jumlahPinjam: number
+        public nama: string,
+        public buku: string,
+        public jumlahPinjam: number
     ) {}
 
-    tampilkanInfo(): void {
-    console.log(
-        `${this.nama} meminjam buku ${this.buku}`
-    );
+    tampilkanInfo() {
+        console.log(`${this.nama} meminjam buku ${this.buku}`);
     }
 
-    lihatJumlahPinjam(): void {
-    console.log(`Jumlah buku yang dipinjam: ${this.jumlahPinjam}`);
+    get jumlah(): number {
+        return this.jumlahPinjam;
+    }
+
+    set jumlah(value: number) {
+        if (value === 0) {
+            this.jumlahPinjam = 0;
+            console.log("buku tidak tersedia");
+        } else if (value > 0) {
+            this.jumlahPinjam = value;
+            console.log(`${this.nama} meminjam buku sebanyak ${this.jumlah}`);
+        } else {
+            console.log("Nilai tidak valid");
+        }
     }
 }
 
 const varel = new Perpustakaan(
     "Varel",
     "3726 MDPL",
-    1
+    0
 );
-
 varel.tampilkanInfo();
-varel.lihatJumlahPinjam();
+varel.jumlah = 0; // setter
 
 class Karyawan extends Perpustakaan{
     constructor(
@@ -33,17 +42,19 @@ class Karyawan extends Perpustakaan{
     private karyawan: string
     ){
     super(nama,buku,jumlahPinjam)
-}run2():void{
-    console.log(`karyawan yang berjaga di perpustakaan saat itu adalah ${this.karyawan}`)
-}
+    }
+
+    run2() {
+        console.log(`karyawan yang berjaga di perpustakaan saat itu adalah ${this.karyawan}`)
+    }
 }
 
 const alex = new Karyawan (
     'alex',
     'konspirasi alam semesta',
-    2,
+    0,
     'jainab'
 )
 alex.tampilkanInfo();
-alex.lihatJumlahPinjam();
 alex.run2()
+alex.jumlah = 2 //setter
