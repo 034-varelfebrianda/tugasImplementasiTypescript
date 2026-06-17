@@ -3,7 +3,9 @@ class Perpustakaan {
         public nama: string,
         public buku: string,
         public jumlahPinjam: number
-    ) {}
+    ) {
+        console.log('data peminjaman buku di mulai')
+    }
 
     tampilkanInfo() {
         console.log(`${this.nama} meminjam buku ${this.buku}`);
@@ -16,12 +18,12 @@ class Perpustakaan {
     set jumlah(value: number) {
         if (value === 0) {
             this.jumlahPinjam = 0;
-            console.log("buku tidak tersedia");
+            console.log('buku tidak tersedia');
         } else if (value > 0) {
             this.jumlahPinjam = value;
             console.log(`${this.nama} meminjam buku sebanyak ${this.jumlah}`);
         } else {
-            console.log("Nilai tidak valid");
+            console.log('Nilai tidak valid');
         }
     }
 }
