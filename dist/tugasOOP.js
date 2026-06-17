@@ -9,6 +9,7 @@ class Perpustakaan {
     tampilkanInfo() {
         console.log(`${this.nama} meminjam buku ${this.buku}`);
     }
+    
     get jumlah() {
         return this.jumlahPinjam;
     }
